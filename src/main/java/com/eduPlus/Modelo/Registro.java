@@ -1,7 +1,7 @@
 package com.eduPlus.Modelo;
 
-
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,6 +17,8 @@ import jakarta.persistence.Table;
 @Table(name = "Registro")
 public class Registro {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(Registro.class);
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idRegistro")
@@ -28,106 +30,77 @@ public class Registro {
     @Column(name = "NoLista", nullable = false)
     private int noLista;
 
-    // Getters, setters y toString a ser añadidos aquí
-    
-    ////////////////////////////////
-    //relacion con la bd
-    
-    //ya esta relacionada
-    
     @OneToOne
     @JoinColumn(name = "idEstudiante")
     private Estudiante estudiante;
-    
-    // ya esta relacionada
+
     @ManyToOne
     @JoinColumn(name = "idCurso")
     private Curso idCurso;
-    
-    
-    
-    
-    
-    
-    /////////////////////////////////////
-    
+
     public Registro() {
-		// TODO Auto-generated constructor stub
-	}
+    }
 
-	public Registro(Integer idRegistro, int ano, int noLista) {
-		super();
-		this.idRegistro = idRegistro;
-		this.ano = ano;
-		this.noLista = noLista;
-	}
+    public Registro(Integer idRegistro, int ano, int noLista) {
+        this.idRegistro = idRegistro;
+        this.ano = ano;
+        this.noLista = noLista;
+    }
 
-	public Integer getIdRegistro() {
-		return idRegistro;
-	}
+    public Integer getIdRegistro() {
+        return idRegistro;
+    }
 
-	public void setIdRegistro(Integer idRegistro) {
-		this.idRegistro = idRegistro;
-	}
+    public void setIdRegistro(Integer idRegistro) {
+        this.idRegistro = idRegistro;
+    }
 
-	public int getAno() {
-		return ano;
-	}
+    public int getAno() {
+        return ano;
+    }
 
-	public void setAno(int ano) {
-		this.ano = ano;
-	}
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
 
-	public int getNoLista() {
-		return noLista;
-	}
+    public int getNoLista() {
+        return noLista;
+    }
 
-	public void setNoLista(int noLista) {
-		this.noLista = noLista;
-	}
-	
-	
-	
-	
+    public void setNoLista(int noLista) {
+        this.noLista = noLista;
+    }
 
-
-
-	public Estudiante getEstudiante() {
-		return estudiante;
-	}
-
-	public void setEstudiante(Estudiante estudiante) {
-		this.estudiante = estudiante;
-	}
-
-	public Curso getIdCurso() {
-		return idCurso;
-	}
-
-	public void setIdCurso(Curso idCurso) {
-		this.idCurso = idCurso;
-	}
-
-	@Override
-	public String toString() {
-		return "Registro [idRegistro=" + idRegistro + ", ano=" + ano + ", noLista=" + noLista + ", estudiante="
-				+ estudiante + ", idCurso=" + idCurso + "]";
-	}
-
-
-	
     
     
+    //////////////ESTO VA EN EL CONTROLADOR///////////////
+    //CONDICIONAL PARA QUE SI HAY UN USUARIO CON EL MISMO ID NO LO DEJE REGISTRAR Y SI NO SI LO DEJE REGISTRAR 
+//    public Estudiante getEstudiante() {
+//        return estudiante;
+//    }
+//
+//    public void setEstudiante(Estudiante estudiante) {
+//        if (this.estudiante != null) {
+//            LOGGER.warn("¡Alerta! Este registro ya tiene un estudiante asignado.");
+//        } else {
+//            this.estudiante = estudiante;
+//            estudiante.setRegistro(this);
+//        }
+//    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    ////////////////////////////////////////////////////
+
+    public Curso getIdCurso() {
+        return idCurso;
+    }
+
+    public void setIdCurso(Curso idCurso) {
+        this.idCurso = idCurso;
+    }
+
+    @Override
+    public String toString() {
+        return "Registro [idRegistro=" + idRegistro + ", ano=" + ano + ", noLista=" + noLista + ", estudiante="
+                + estudiante + ", idCurso=" + idCurso + "]";
+    }
 }

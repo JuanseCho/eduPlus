@@ -2,7 +2,6 @@ package com.eduPlus.Modelo;
 
 import java.util.List;
 
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,43 +20,31 @@ import jakarta.persistence.Table;
 @Table(name = "Estudiante")
 public class Estudiante {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idEstudiante")
 	private Integer idEstudiante;
 
-	
-	
 	/////////////////////////////////////////////
-	//se hace las relaciones con la bd
+	// se hace las relaciones con la bd
 
 	@OneToMany(mappedBy = "idEstudiante")
-    private List<Notas> notas;
-	
-	//se hace las relaciones con la bd
-	
-	//ya tiene relacion
+	private List<Notas> notas;
+
+	// se hace las relaciones con la bd
+
+	// ya tiene relacion
 	@OneToMany(mappedBy = "idEstudiante")
-	    private List<TareasEstudiante> tareasEstudiante;
-	
-	//ya tiene relacion
+	private List<TareasEstudiante> tareasEstudiante;
+
+	// ya tiene relacion
 	@OneToMany(mappedBy = "idEstudiante")
-    private List<Observador> observador;
-	
-	
-	
+	private List<Observador> observador;
+
 	@OneToOne(mappedBy = "estudiante", cascade = CascadeType.ALL)
-		    private Registro registro;
-		 
-	///////////////////////////////////////////	 
-		 
-		 
-		 
-		 
-		 
-		 
-		 
+	private Registro registro;
+
+	///////////////////////////////////////////
 
 	@Column(name = "Documento", unique = true, nullable = false, length = 50)
 	private int documento;
@@ -96,18 +83,18 @@ public class Estudiante {
 	@Column(name = "Estado", nullable = false)
 	private Estado estado;
 	/////////////////////////////
-	//relacion con la bd
-	
-	//ya esta relacionada
+	// relacion con la bd
+
+	// ya esta relacionada
 	@ManyToOne
-    @JoinColumn(name = "idRol")
+	@JoinColumn(name = "idRol")
 	private Rol idRol;
-	
-	//ya esta relacionada
+
+	// ya esta relacionada
 	@ManyToOne
-    @JoinColumn(name = "idUsuario")
-    private Usuario idUsuario;
-		
+	@JoinColumn(name = "idUsuario")
+	private Usuario idUsuario;
+
 	///////////////////////////////////
 	public Estudiante() {
 		// TODO Auto-generated constructor stub
@@ -228,6 +215,18 @@ public class Estudiante {
 		this.idUsuario = idUsuario;
 	}
 
+	
+	
+	//ESTO VA EN EL CONTROLADOR
+//	public Registro getRegistro() {
+//		return registro;
+//	}
+//
+//	public void setRegistro(Registro registro) {
+//		this.registro = registro;
+//		
+//	}
+
 	@Override
 	public String toString() {
 		return "Estudiante [idEstudiante=" + idEstudiante + ", notas=" + notas + ", tareasEstudiante="
@@ -236,12 +235,5 @@ public class Estudiante {
 				+ ", email=" + email + ", password=" + password + ", celular=" + celular + ", direccion=" + direccion
 				+ ", estado=" + estado + ", idRol=" + idRol + ", idUsuario=" + idUsuario + "]";
 	}
-
-
-
-	
-
-	
-	
 
 }
