@@ -1,0 +1,244 @@
+<head th:fragment="head">
+    <meta charset="utf-8"/>
+    <title>eduPlus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description"/>
+    <meta content="Coderthemes" name="author"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- C3 charts css -->
+    <link href="../plugins/c3/c3.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- App css -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/assets/css/icons.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/assets/css/metismenu.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/assets/css/style.css}" rel="stylesheet" type="text/css"/>
+
+    <!-- Vendor CSS Files -->
+    <link th:href="@{/assets/vendor/animate.css/animate.min.css}" rel="stylesheet">
+    <link th:href="@{/assets/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/assets/vendor/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
+    <link th:href="@{/assets/vendor/boxicons/css/boxicons.min.css}" rel="stylesheet">
+    <link th:href="@{/assets/vendor/glightbox/css/glightbox.min.css}" rel="stylesheet">
+    <link th:href="@{/assets/vendor/swiper/swiper-bundle.min.css}" rel="stylesheet">
+    <script th:href="@{/assets/js/modernizr.min.js}"></script>
+
+    <!-- Template Main CSS File -->
+    <link th:href="@{/assets/css/styles.css}" rel="stylesheet">
+</head>
+
+
+<div th:fragment="topbar">
+    <!-- Top Bar Start -->
+    <div class="topbar">
+
+        <!-- LOGO -->
+        <div class="topbar-left">
+            <a th:href="@{/eduplus}" class="logo">
+                                <span>
+                                    <img src="/assets/images/eduPlus.png" alt="" height="40">
+                                </span>
+                <i>
+                    <img src="assets/images/logo_sm.png" alt="" height="28">
+                </i>
+            </a>
+        </div>
+
+        <nav class="navbar-custom">
+
+            <ul class="list-inline float-right mb-0">
+                <li class="list-inline-item dropdown notification-list">
+                    <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown"
+                       href="#" role="button"
+                       aria-haspopup="false" aria-expanded="false">
+                        <i class="dripicons-bell noti-icon"></i>
+                        <span class="badge badge-pink noti-icon-badge">4</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-lg" aria-labelledby="Preview">
+                        <!-- item-->
+                        <div class="dropdown-item noti-title">
+                            <h5><span class="badge badge-danger float-right">5</span>Notificaciones</h5>
+                        </div>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <div class="notify-icon bg-success"><i class="icon-bubble"></i></div>
+                            <p class="notify-details">Robert S. Taylor commented on Admin<small class="text-muted">1 min
+                                ago</small></p>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <div class="notify-icon bg-info"><i class="icon-user"></i></div>
+                            <p class="notify-details">New user registered.<small class="text-muted">1 min ago</small>
+                            </p>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <div class="notify-icon bg-danger"><i class="icon-like"></i></div>
+                            <p class="notify-details">Carlos Crouch liked <b>Admin</b><small class="text-muted">1 min
+                                ago</small></p>
+                        </a>
+
+                        <!-- All-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item notify-all">
+                            ver todo
+                        </a>
+
+                    </div>
+                </li>
+
+                <li class="list-inline-item dropdown notification-list">
+                    <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown"
+                       href="#" role="button"
+                       aria-haspopup="false" aria-expanded="false">
+                        <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
+                        <!-- item-->
+                        <div class="dropdown-item noti-title">
+                            <h5 class="text-overflow"><small>Welcome ! John</small></h5>
+                        </div>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="mdi mdi-account-circle"></i> <span>Profile</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="mdi mdi-settings"></i> <span>Settings</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="mdi mdi-lock-open"></i> <span>Lock Screen</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="mdi mdi-power"></i> <span>Logout</span>
+                        </a>
+
+                    </div>
+                </li>
+
+            </ul>
+
+            <ul class="list-inline menu-left mb-0">
+                <li class="float-left">
+                    <button class="button-menu-mobile open-left waves-light waves-effect">
+                        <i class="dripicons-menu"></i>
+                    </button>
+                </li>
+                <li class="hide-phone app-search">
+                    <form role="search" class="">
+                        <input type="text" placeholder="Search..." class="form-control">
+                        <a href=""><i class="fa fa-search"></i></a>
+                    </form>
+                </li>
+            </ul>
+
+        </nav>
+
+    </div>
+    <!-- Top Bar End -->
+</div>
+
+<div th:fragment="sidebar">
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="left side-menu">
+        <div class="slimscroll-menu" id="remove-scroll">
+
+            <!--- Sidemenu -->
+            <div id="sidebar-menu">
+                <!-- Left Menu Start -->
+                <ul class="metismenu" id="side-menu">
+
+                    <li>
+                        <a th:href="@{/eduplus}">
+                            <i class="fi-air-play"></i><span> inicio </span>
+                        </a>
+
+                    </li>
+
+
+                    <li>
+                        <a href="javascript: void(0);"><i class="fi-paper"></i><span> Usuarios </span> <span
+                                class="menu-arrow"></span></a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li><a href="#">Docentes</a></li>
+                            <li><a href="#">Estudiantes</a></li>
+                            <li><a href="#">Acudientes</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="mdi mdi-animation"></i> <span>Cursos</span> </a></li>
+                    <li><a href="#"><i class="mdi mdi-animation"></i> <span>Tareas y Actividades </span> </a></li>
+
+
+                    <li>
+                        <a href="#"><i class="fi-layers"></i> <span> Historial De Accoines </span></a>
+                    </li>
+
+                </ul>
+
+            </div>
+            <!-- Sidebar -->
+            <div class="clearfix"></div>
+
+        </div>
+        <!-- Sidebar -left -->
+    </div>
+
+</div>
+
+
+<div th:fragment="searchBAR">
+    <div class="search-bar p-2">
+        <form class="search-form d-flex align-items-center my-2 my-lg-0" method="POST" th:action="@{/search}">
+            <input class="form-control me-sm-2" type="search" name="nombre" placeholder="Buscar un producto"
+                   title="Enter search keyword" autocomplete="off">
+            <button class="btn btn-outline-info" type="submit" title="Search"><i class="bi bi-search"></i></button>
+        </form>
+    </div><!-- End Search Bar -->
+<div th:fragment="footer">
+    <footer class="footer text-right">
+        2017 - 2018 © Adminox. - Coderthemes.com
+    </footer>
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+</div>
+<div th:fragment="script">
+    <!-- jQuery  -->
+    <script th:src="@{/assets/js/jquery.min.js}"></script>
+    <script  th:src="@{/assets/js/popper.min.js}"></script><!-- Popper for Bootstrap -->
+    <script  th:src="@{/assets/js/bootstrap.min.js}"></script>
+    <script  th:src="@{/assets/js/metisMenu.min.js}"></script>
+    <script  th:src="@{/assets/js/waves.js}"></script>
+    <script  th:src="@{/assets/js/jquery.slimscroll.js}"></script>
+
+    <!-- Counter js  -->
+    <script  th:src="@{/../plugins/waypoints/jquery.waypoints.min.js}"></script>
+    <script  th:src="@{/../plugins/counterup/jquery.counterup.min.js}"></script>
+
+    <!-- Dashboard init -->
+    <script  th:src="@{/assets/pages/jquery.dashboard.js}"></script>
+
+    <!--C3 Chart-->
+    <script type="text/javascript" th:src="@{/../plugins/d3/d3.min.js}"></script>
+    <script type="text/javascript" th:src="@{/../plugins/c3/c3.min.js}"></script>
+
+    <!--Echart Chart-->
+    <script th:src="@{/../plugins/echart/echarts-all.js}"></script>
+
+    <!-- App js -->
+    <script  th:src="@{/assets/js/jquery.core.js}"></script>
+    <script  th:src="@{/assets/js/jquery.app.js}"></script>
+</div>
