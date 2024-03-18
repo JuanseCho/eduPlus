@@ -13,4 +13,10 @@ public class AdministradorController {
 
         return "administrador/home";
     }
+    
+    @GetMapping("/docentes")
+    public String docentes() {
+    	return "administrador/docentes";
+    }
 }
+

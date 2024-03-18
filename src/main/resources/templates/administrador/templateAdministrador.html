@@ -13,7 +13,7 @@
     <link href="../plugins/c3/c3.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- App css -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/assets/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/assets/css/icons.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/assets/css/metismenu.min.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/assets/css/style.css}" rel="stylesheet" type="text/css"/>
@@ -173,7 +173,7 @@
                         <a href="javascript: void(0);"><i class="fi-paper"></i><span> Usuarios </span> <span
                                 class="menu-arrow"></span></a>
                         <ul class="nav-second-level" aria-expanded="false">
-                            <li><a href="#">Docentes</a></li>
+                            <li><a th:href="@{eduplus/docentes}">Docentes</a></li>
                             <li><a href="#">Estudiantes</a></li>
                             <li><a href="#">Acudientes</a></li>
                         </ul>
