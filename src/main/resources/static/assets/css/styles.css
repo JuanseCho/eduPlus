@@ -1389,3 +1389,13 @@ section {
   font-size: 13px;
   color: #fff;
 }
+
+
+ .custom-file-input:valid + .custom-file-label {
+   border-color: green;
+ }
+.custom-file-input:valid + .custom-file-label::after {
+  content: "✔";
+  color: green;
+  font-weight: bold;
+}

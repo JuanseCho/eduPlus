@@ -54,10 +54,14 @@ public class Usuario {
     
 
     @Column(name = "Documento", unique = true, nullable = false, length = 50)
-    private int documento;
+    private String documento;
 
-    public enum TipoDocumento {
-        CEDULA, TARJETA_DE_IDENTIDAD, REGISTRO_CIVIL
+	public Usuario(String documento, TipoDocumento tipoDocumento, String apellidos, String nombres, String especialidad, String email, String password, Integer celular, String direccion, Estado estado, Rol rol) {
+	}
+
+	public enum TipoDocumento {
+        CEDULA, TARJETA_DE_IDENTIDAD, REGISTRO_CIVIL;
+
     }
 
     @Enumerated(EnumType.STRING)
@@ -80,7 +84,7 @@ public class Usuario {
     private String password;
 
     @Column(name = "Celular", nullable = false, length = 20)
-    private Integer celular;
+    private String celular;
 
     @Column(name = "Direccion", nullable = false, length = 60)
     private String direccion;
@@ -92,29 +96,26 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     @Column(name = "Estado", nullable = false)
     private Estado estado;
-    
-    
-    /////////////////////////////////////
-    //relacion con la bd
+
+
+   private String imgPerfil;
     
     //ya esta relacionada
     @ManyToOne
     @JoinColumn(name = "idRol")
     private Rol idRol;
     
-    
-    ///////////////////////////////////////
+  ///////////////////////////////////////
     
     
     
     // Getters, setters y toString a ser añadidos aquí
-    
-    public Usuario() {
+	public Usuario() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Usuario(Integer idUsuario, int documento, TipoDocumento tipoDocumento, String apellidos, String nombres,
-			String especialidad, String email, String password, Integer celular, String direccion, Estado estado) {
+	public Usuario(Integer idUsuario, String documento, TipoDocumento tipoDocumento, String apellidos, String nombres,
+			String especialidad, String email, String password, String celular, String direccion, Estado estado, String imgPerfil) {
 		super();
 		this.idUsuario = idUsuario;
 		this.documento = documento;
@@ -127,6 +128,7 @@ public class Usuario {
 		this.celular = celular;
 		this.direccion = direccion;
 		this.estado = estado;
+		this.imgPerfil = imgPerfil;
 	}
 
 	public Integer getIdUsuario() {
@@ -137,11 +139,11 @@ public class Usuario {
 		this.idUsuario = idUsuario;
 	}
 
-	public int getDocumento() {
+		public String getDocumento() {
 		return documento;
 	}
 
-	public void setDocumento(int documento) {
+	public void setDocumento(String documento) {
 		this.documento = documento;
 	}
 
@@ -193,11 +195,11 @@ public class Usuario {
 		this.password = password;
 	}
 
-	public Integer getCelular() {
+	public String getCelular() {
 		return celular;
 	}
 
-	public void setCelular(Integer celular) {
+	public void setCelular(String celular) {
 		this.celular = celular;
 	}
 
@@ -216,14 +218,24 @@ public class Usuario {
 	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
-	
-	
 
-	public Rol getIdRol() {
-		return idRol;
+	public String getImgPerfil() {
+		return imgPerfil;
 	}
 
-	public void setIdRol(Rol idRol) {
+	public void setImgPerfil(String imgPerfil) {
+		this.imgPerfil = imgPerfil;
+	}
+
+	public Integer getIdRol() {
+		if (idRol != null) {
+			return idRol.getIdRol();
+		} else {
+			return null;
+		}
+	}
+
+	public  void setIdRol(Rol idRol) {
 		this.idRol = idRol;
 	}
 

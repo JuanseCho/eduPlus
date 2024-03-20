@@ -20,9 +20,10 @@ public class Rol {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idRol")
     private Integer idRol;
-    
-    
-    
+
+
+	@Column(name = "Rol", nullable = false, length = 100)
+	private String rol;
     
     ///////////////////////////////////////
     //relacion con la bd
@@ -39,8 +40,7 @@ public class Rol {
     
     /////////////////////////////////////////////
     
-    @Column(name = "Rol", nullable = false, length = 100)
-    private String rol;
+
 
     // Getters, setters y toString a ser añadidos aquí
     
