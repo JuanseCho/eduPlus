@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" xmlsn:th="http://thymeLeaf.org">
+
+<head th:insert="~{/administrador/templateAdministrador.html::head}"></head>
+
+<body>
+<div id="wrapper">
+    <div th:insert="~{/administrador/templateAdministrador.html::topbar}"></div>
+    <div th:insert="~{/administrador/templateAdministrador.html::sidebar}"></div>
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+            <div class="container-fluid pt-3">
+                <div class="row">
+                    <!-- start col -->
+                    <div class="col-lg-5 mt-3 text-center ">
+
+                        <h2 class=" mt-5 mb-5"> Registro de nuevo usuario</h2>
+                        <img th:src="@{/assets/images/features.png}" alt="user" class="img-fluid  rounded-circle">
+
+
+                        <div class="text-center align-items-lg-center mt-4" >
+                            <form role="form" method="post" th:action="@{/eduplus/importar}" enctype="multipart/form-data" class="file-upload-form">
+
+                                <div class="form-group row">
+                                    <label for="file" class="col-12 col-form-label file-upload-label">Registro masivo mediante archivo Excel<span class="text-danger">*</span></label>
+                                    <div class="col-12">
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="file" name="file" required accept=".xlsx, .xls">
+                                                <label class="custom-file-label" for="file"><i class="bi-cloud-upload"></i></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row  ">
+                                    <div class="col-12 ">
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                            Register
+                                        </button>
+                                        <button type="reset" class="btn btn-secondary waves-effect m-l-5">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <!-- end col -->
+                    <!-- start col -->
+                    <div class="col-lg-7 mt-3">
+                        <div class="card-box">
+
+
+                            <form role="form" method="post" th:action="@{/eduplus/save}">
+                                <div class="form-group row">
+                                    <label for="idRol" class="col-4 col-form-label">Rol<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-7">
+                                        <select required class="form-control form-select" id="idRol" name="idRol">
+                                            <option value="" disabled selected></option>
+                                            <option value="2">Docente</option>
+                                            <option value="3">Estudiante</option>
+                                            <option value="4">Rector</option>
+                                            <option value="5">Secretaria</option>
+                                            <option value="6">Cordinador</option>
+                                            <option value="7">Acudiente</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="nombres" class="col-4 col-form-label">Nombres<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-7">
+                                        <input type="text" required class="form-control" id="nombres" name="nombres"
+                                               placeholder="Nombres" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="apellidos" class="col-4 col-form-label">Apellidos<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-7">
+                                        <input type="text" required class="form-control" id="apellidos" name="apellidos"
+                                               placeholder="Apellidos" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="documento" class="col-4 col-form-label">Documento<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-7">
+                                        <input type="text" required class="form-control" id="documento" name="documento"
+                                               placeholder="Documento" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="tipoDocumento" class="col-4 col-form-label">Tipo de Documento<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-7">
+                                        <select required class="form-control form-select" id="tipoDocumento" name="tipoDocumento">
+                                            <option value="" disabled selected></option>
+                                            <option value="REGISTRO_CIVIL">Registro Civil</option>
+                                            <option value="TARJETA_DE_IDENTIDAD">Tarjeta de Identidad</option>
+                                            <option value="CEDULA">Cédula de Ciudadanía</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="especialidad" class="col-4 col-form-label">Especialidad<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-7">
+                                        <input type="text" required class="form-control" id="especialidad"
+                                               name="especialidad"
+                                               placeholder="Especialidad" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="email" class="col-4 col-form-label">Email<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-7">
+                                        <input type="email" required parsley-type="email" class="form-control"
+                                               id="email" name="email" placeholder="Email" autocomplete="off">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="celular" class="col-4 col-form-label">Celular<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-7">
+                                        <input type="text" required class="form-control" id="celular" name="celular"
+                                               placeholder="Celular" autocomplete="off">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="direccion" class="col-4 col-form-label">Direccion<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-7">
+                                        <input type="text" required class="form-control" id="direccion" name="direccion"
+                                               placeholder="Direccion" autocomplete="off">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="Estado" class="col-4 col-form-label">Estado<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-7">
+                                        <select required class="form-control form-select" id="Estado" name="Estado">
+                                            <option value="" disabled selected></option>
+                                            <option value="ACTIVO">Activo</option>
+                                            <option value="INACTIVO">Inactivo</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <div class="col-8 offset-4">
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                            Register
+                                        </button>
+                                        <button type="reset"
+                                                class="btn btn-secondary waves-effect m-l-5">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <div class="visible-lg" style="height: 79px;"></div>
+                        </div>
+
+                    </div>
+                    <!-- end col -->
+                </div>
+            </div> <!-- container -->
+        </div> <!-- content -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Right content here -->
+    <!-- ============================================================== -->
+    <div th:insert="~{/administrador/templateAdministrador.html::footer}"></div>
+
+</div>
+<div th:insert="~{/administrador/templateAdministrador.html::script}"></div>
+
+
+</body>
+</html>
