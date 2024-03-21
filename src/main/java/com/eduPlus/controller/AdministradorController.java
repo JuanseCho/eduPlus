@@ -29,6 +29,12 @@ public class AdministradorController {
         return "administrador/home";
     }
 
+    
+    @GetMapping("/docentes")
+    public String docentes() {
+    	return "administrador/docentes";
+    }
+
     private final Logger LOGGER = (Logger) LoggerFactory.getLogger(AdministradorController.class);
 
     @Autowired
@@ -115,5 +121,5 @@ public class AdministradorController {
         return "redirect:/administrador/usuario/registro";
     }
 
-
 }
+
