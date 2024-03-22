@@ -118,7 +118,7 @@ public class AdministradorController {
         }
 
         // Redireccionar a la página de registro después de importar los usuarios
-        return "redirect:/administrador/usuario/registro";
+        return "redirect:/eduplus/registro";
     }
 
 }
